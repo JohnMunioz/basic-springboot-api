@@ -1,4 +1,4 @@
-package com.apinoz.apires;
+package com.apinoz.apirest;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ApiRestNozApplication {
 
     public static void main(String[] args) {
+
         SpringApplication.run(ApiRestNozApplication.class, args);
     }
 
