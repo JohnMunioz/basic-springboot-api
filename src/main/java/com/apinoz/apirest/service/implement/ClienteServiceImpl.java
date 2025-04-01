@@ -3,16 +3,23 @@ package com.apinoz.apirest.service.implement;
 import com.apinoz.apirest.model.dao.ClienteDao;
 import com.apinoz.apirest.model.dto.ClienteDto;
 import com.apinoz.apirest.model.entity.Cliente;
-import com.apinoz.apirest.service.ICliente;
+import com.apinoz.apirest.service.IClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
-public class ClienteImpl implements ICliente {
+public class ClienteServiceImpl implements IClienteService {
 
     @Autowired
     private ClienteDao clienteDao;
+
+    @Override
+    public List<Cliente> listAll() {
+        return (List) clienteDao.findAll();
+    }
 
     @Transactional
     @Override
@@ -37,5 +44,10 @@ public class ClienteImpl implements ICliente {
     @Override
     public void delete(Cliente cliente) {
         clienteDao.delete(cliente);
+    }
+
+    @Override
+    public boolean existsById(Integer id) {
+        return clienteDao.existsById(id);
     }
 }
